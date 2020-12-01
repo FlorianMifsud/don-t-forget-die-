@@ -15,7 +15,7 @@ localhost/?user=Florian&role=Admin&create_user=true User created, no need admin 
 Because the PHP script is executed until the end
 */
 	$req = $pdo->prepare('INSERT users ("name", "role") VALUES (?, ?)');
-	$req->execute([$_POST['user'], $_POST['role']]);
+	$req->execute([$_GET['user'], $_GET['role']]);
 	header('Location: /session.php?msg=create_user-'.$_GET['user'].'-'.$_GET['role']);
 }
 var_dump($_SESSION);
